@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Tipper</string>
+    <string name="edit_message">Enter Message</string>
+    <string name="button_send">Send</string>
+    <string name="bill_title">Bill $:</string>
+    <string name="bill_hint">Bill $</string>
+    <string name="tipPercent_title">Tip %:</string>
+    <string name="tipPercent_hint">Tip %</string>
+    <string name="tip_title">Tip:</string>
+    <string name="tip_default">$0.00</string>
+    <string name="total_title">Total:</string>
+    <string name="total_default">$0.00</string>
+    <string name="clearAll_button">Clear All</string>
+    <string name="selectbill">Bill Line</string>
+    <string name="selecttip">Tip Line</string>
+    <string name="close_button">Close</string>
+    <string name="customTip_hint">Custom</string>
+    <string name="clearX">X</string>
+    <string name="low_per">15%</string>
+    <string name="mid_per">18.5%</string>
+    <string name="high_per">20%</string>
+    <string name="round_check">Round up</string>
+</resources>

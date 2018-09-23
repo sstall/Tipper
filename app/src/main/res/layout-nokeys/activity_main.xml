@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:adjustViewBounds="false"
+        android:cropToPadding="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_2ptshadow_receipt"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/select_button_Layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <RelativeLayout
+        android:id="@+id/bill_Input_Layout"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/tip_Input_Layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/billClear_button"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="36dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_toStartOf="@id/bill_input_textlayout"
+            android:fontFamily="sans-serif"
+            android:onClick="clearBill"
+            android:text="@string/clearX"
+            android:textAlignment="center"
+            tools:textColorLink="@android:drawable/btn_dialog" />
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/bill_input_textlayout"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerVertical="true"
+            android:gravity="end"
+            android:hint="@string/bill_hint">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/bill_input"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="end"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal"
+                android:singleLine="true"
+                android:textAlignment="textEnd"
+                android:textSize="24sp"
+                android:theme="@style/myEditText" />
+
+        </android.support.design.widget.TextInputLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/tip_Input_Layout"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/rounding_Layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bill_Input_Layout">
+
+        <LinearLayout
+            android:id="@+id/tip_button_Layout"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="8dp"
+            android:layout_toStartOf="@id/tipClear_button"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <Button
+                android:id="@+id/fifteenPercent_button"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:lines="1"
+                android:onClick="setTip"
+                android:text="@string/low_per" />
+
+            <Button
+                android:id="@+id/eighteenPercent_button"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:lines="1"
+                android:onClick="setTip"
+                android:text="@string/mid_per" />
+
+            <Button
+                android:id="@+id/twentyPercent_button"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:lines="1"
+                android:onClick="setTip"
+                android:text="@string/high_per" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/tipClear_button"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="36dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="8dp"
+            android:layout_toStartOf="@id/tip_input_textlayout"
+            android:fontFamily="sans-serif"
+            android:onClick="clearTip"
+            android:text="@string/clearX"
+            android:textAlignment="center" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tip_input_textlayout"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:gravity="end"
+            android:hint="@string/tipPercent_hint">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tip_input"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="end"
+                android:imeOptions="actionDone"
+                android:inputType="numberDecimal"
+                android:singleLine="true"
+                android:textAlignment="textEnd"
+                android:textSize="24sp"
+                android:theme="@style/myEditText" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rounding_Layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:gravity="center_vertical"
+        app:layout_constraintBottom_toTopOf="@id/tip_Output_Layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tip_Input_Layout">
+
+        <CheckBox
+            android:id="@+id/round_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:text="@string/round_check" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/tip_Output_Layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rounding_Layout">
+
+        <TextView
+            android:id="@+id/tip_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="24dp"
+            android:singleLine="true"
+            android:text="@string/tip_title"
+            android:textAlignment="textStart"
+            android:textAppearance="@android:style/TextAppearance.Material.Title"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/tip_Output"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="24dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/tip_default"
+            android:textAlignment="textEnd"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/total_Output_Layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tip_Output_Layout">
+
+        <TextView
+            android:id="@+id/total_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="24dp"
+            android:singleLine="true"
+            android:text="@string/total_title"
+            android:textAlignment="textStart"
+            android:textAppearance="@android:style/TextAppearance.Material.Title"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/total_Output"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="24dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/total_default"
+            android:textAlignment="textEnd"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/select_button_Layout"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:gravity="top|center"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/total_Output_Layout">
+
+        <Button
+            android:id="@+id/clearAll_button"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_weight="1"
+            android:onClick="clearAll"
+            android:text="@string/clearAll_button" />
+
+
+        <Button
+            android:id="@+id/billSelect_button"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:onClick="selectBill"
+            android:text="@string/selectbill" />
+
+        <Button
+            android:id="@+id/tipSelect_button"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="selectTip"
+            android:text="@string/selecttip" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
